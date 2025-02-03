@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import '../styles/globals.css';
+import ReduxProvider from '../components/ReduxProvider';
+import Header from '../components/Header';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ReduxProvider>
+          <Header />
+          <main>{children}</main>
+          <footer className="bg-gray-800 text-white p-4 text-center">
+            © 2025 My Next App
+          </footer>
+        </ReduxProvider>
       </body>
     </html>
   );
