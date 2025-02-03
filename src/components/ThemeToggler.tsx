@@ -8,7 +8,7 @@ const ThemeToggler = () => {
 
   return (
     <div
-      className={`min-h-screen flex items-center justify-center ${color === 'gray' ? 'bg-gray-500' : 'bg-blue-500'}`}
+      className={`p-8 flex items-center justify-center ${color === 'gray' ? 'bg-gray-500' : 'bg-blue-500'}`}
     >
       <button
         onClick={() => dispatch(toggleColor())}

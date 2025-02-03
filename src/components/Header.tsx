@@ -1,14 +1,12 @@
 "use client";
-
-import Link from 'next/link';
+// import Link from 'next/link';
 
 const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4">
-      <nav className="container mx-auto">
+      {/* <nav className="container mx-auto">
         <ul className="flex space-x-4">
-            <li>Aqui vai uma página com link</li>
-          {/* <li>
+          <li>
             <Link href="/">
               <a>Home</a>
             </Link>
@@ -22,9 +20,10 @@ const Header = () => {
             <Link href="/contact">
               <a>Contact</a>
             </Link>
-          </li> */}
+          </li> 
         </ul>
-      </nav>
+      </nav>*/}
+      <h1>Selecione seu esporte e faça sua aposta!</h1>
     </header>
   );
 };
