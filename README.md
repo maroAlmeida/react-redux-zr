@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Considerações:
+
+Os projeto utiliza Redux para controlar o estado global e segue os princípios SOLID:
+
+✅ store/matchSlice.ts – Mantido, gerencia o estado global dos jogos.
+✅ store/store.ts – Mantido, cria a store do Redux.
+✅ components/AccordionItem.tsx – Mantido, atualizado para usar Redux.
+✅ components/SelectedMatch.tsx – Mantido, atualizado para Redux.
+✅ components/ReduxProvider.tsx – Mantido, garantindo o funcionamento do Redux.
+✅ app/layout.tsx – Mantido, incluindo o ReduxProvider.
+✅ app/page.tsx – Mantido, atualizado para refletir a nova estrutura.
+
+Single Responsibility: Cada componente tem uma única função.
+Open/Closed Principle: Componentes podem ser estendidos sem modificação direta.
+Dependency Inversion: Componentes dependem de Redux (abstração), não diretamente de estado interno.

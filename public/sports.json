@@ -1,0 +1,140 @@
+[
+   {
+      "id": 1,
+      "name": "Soccer",
+      "sport": {
+         "id": 1,
+         "name": "Soccer"
+      },
+      "matches": [
+         {
+            "id": 1,
+            "home": {
+               "id": 1,
+               "name": "Real Madrid"
+            },
+            "away": {
+               "id": 2,
+               "name": "Barueri"
+            },
+            "name": "Real Madrid x Barueri"
+         },
+         {
+            "id": 3,
+            "home": {
+               "id": 3,
+               "name": "Paris Saint-Germain"
+            },
+            "away": {
+               "id": 4,
+               "name": "Fortaleza"
+            },
+            "name": "Paris Saint-Germain x Fortaleza"
+         },
+         {
+            "id": 5,
+            "home": {
+               "id": 5,
+               "name": "FC Bayern München"
+            },
+            "away": {
+               "id": 6,
+               "name": "Ferroviária FC"
+            },
+            "name": "FC Bayern München x Ferroviária FC"
+         }
+      ]
+   },
+   {
+      "id": 2,
+      "name": "NBA",
+      "sport": {
+         "id": 2,
+         "name": "Basketball"
+      },
+      "matches": [
+         {
+            "id": 20,
+            "home": {
+               "id": 7,
+               "name": "Boston Celtics"
+            },
+            "away": {
+               "id": 8,
+               "name": "Miami Heat"
+            },
+            "name": "Boston Celtics x Miami Heat"
+         },
+         {
+            "id": 22,
+            "home": {
+               "id": 9,
+               "name": "Chicago Bulls"
+            },
+            "away": {
+               "id": 10,
+               "name": "San Antonio Spurs"
+            },
+            "name": "Chicago Bulls x San Antonio Spurs"
+         },
+         {
+            "id": 24,
+            "home": {
+               "id": 11,
+               "name": "Phoenix Suns"
+            },
+            "away": {
+               "id": 12,
+               "name": "Utah Jazz"
+            },
+            "name": "Phoenix Suns x Utah Jazz"
+         }
+      ]
+   },
+   {
+      "id": 3,
+      "name": "US Open",
+      "sport": {
+         "id": 3,
+         "name": "Tennis"
+      },
+      "matches": [
+         {
+            "id": 40,
+            "home": {
+               "id": 13,
+               "name": "Novak Djokovic"
+            },
+            "away": {
+               "id": 14,
+               "name": "Rafael Nadal"
+            },
+            "name": "Novak Djokovic x Rafael Nadal"
+         },
+         {
+            "id": 42,
+            "home": {
+               "id": 15,
+               "name": "Casper Ruud"
+            },
+            "away": {
+               "id": 16,
+               "name": "Andrey Rublev"
+            },
+            "name": "Casper Ruud x Andrey Rublev"
+         },
+         {
+            "id": 44,
+            "home": {
+               "id": 17,
+               "name": "Carlos Alcaraz"
+            },
+            "away": {
+               "id": 18,
+               "name": "Stefano Tsitsipas"
+            },
+            "name": "Carlos Alcaraz x Stefano Tsitsipas"
+         }
+      ]
+   }
+]

@@ -67,4 +67,4 @@ tailwind.config.ts
 # Build artifacts
 dist/
 build/
-public/
+# public/
