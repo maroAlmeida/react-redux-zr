@@ -9,7 +9,6 @@ interface MatchState {
 
 const initialState: MatchState = { sports: [], selectedMatch: null };
 
-
 // Thunk para buscar os esportes do JSON
 export const loadSports = createAsyncThunk('match/loadSports', async () => {
   return await fetchSportsData();
