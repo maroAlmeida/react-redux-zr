@@ -1,17 +1,16 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { loadSports } from '../store/matchSlice';
-import { RootState, AppDispatch } from '../store/store';
-import AccordionItem from '../components/AccordionItem';
-import SelectedMatch from '../components/SelectedMatch';
 import { useDispatch as useReduxDispatch } from 'react-redux';
+import { loadSports } from '../store/matchSlice';
+import { AppDispatch } from '../store/store';
+import SportsAccordion from '@/components/SportsAccordion';
+import SelectedMatch from '../components/SelectedMatch';
+
 
 
 const Page: React.FC = () => {
   const dispatch = useReduxDispatch<AppDispatch>(); // Dispatch tipado corretamente
-  const sports = useSelector((state: RootState) => state.match.sports);
 
   useEffect(() => {
     dispatch(loadSports()); // Carrega os esportes na montagem
@@ -20,15 +19,15 @@ const Page: React.FC = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold">Sports Matches</h1>
-      {sports.map((sport) => (
-        <div key={sport.id} className="mb-4">
-          <h2 className="text-xl font-semibold">{sport.name}</h2>
-          {sport.matches.map((match) => (
-            <AccordionItem key={match.id} match={match} />
-          ))}
+      <div className='grid grid-cols-3 gap-3' >
+        <div className='border-2 border-indigo-600' >
+          <SportsAccordion />
         </div>
-      ))}
-      <SelectedMatch />
+        <div className='border-2 border-indigo-600'>
+          <SelectedMatch />
+        </div>
+        <div className='border-2 border-indigo-600' ></div>
+      </div>
     </div>
   );
 };
