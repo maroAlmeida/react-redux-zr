@@ -13,11 +13,12 @@ const SportsAccordion: React.FC = () => {
     useEffect(() => {
         dispatch(loadTournaments());
     }, [dispatch] );
+    console.log("Torneios carregados:", tournaments);
 
     return(
         <div>
-            {tournaments.map( (tournament) => (
-                <div key={tournament.id} className='mb-4' >
+            {tournaments.map( (tournament, index) => (
+                <div key={`${tournament.id}-${index}`} className="mb-4"> {/* 🔹 Mesmo que API forneça id duplicado, forçamos para key ser única */}
                     <h2 className='text-xl font-semi-bold'  >{tournament.name}</h2>
                     {tournament.matches.map((match) => (
                         <AccordionItem key={match.id} match={match} />
