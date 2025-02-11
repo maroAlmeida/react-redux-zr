@@ -1,18 +1,24 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchSportsData } from '../services/api';
-import { Sport, Match } from '../services/types';
+import { fetchTournaments, fetchMarkets } from '@/services/api';
+import { Tournament, Market, Match } from '@/services/types';
 
 interface MatchState {
-  sports: Sport[];
+  tournaments: Tournament[];
+  markets: Market[];
   selectedMatch: Match | null;
 }
 
-const initialState: MatchState = { sports: [], selectedMatch: null };
+const initialState: MatchState = { tournaments: [], markets: [], selectedMatch: null };
 
-// Thunk para buscar os esportes do JSON
-export const loadSports = createAsyncThunk('match/loadSports', async () => {
-  return await fetchSportsData();
+
+// Thunks para buscar dados da API
+export const loadTournaments = createAsyncThunk('match/loadTournaments', async () => {
+  return await fetchTournaments();
 });
+
+export const loadMarkets = createAsyncThunk('match/loadMarkets', async (matchId: number) => {
+  return await fetchMarkets(matchId);
+})
 
 const matchSlice = createSlice({
   name: 'match',
@@ -23,9 +29,12 @@ const matchSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loadSports.fulfilled, (state, action) => {
-      state.sports = action.payload;
+    builder.addCase(loadTournaments.fulfilled, (state, action) => {
+      state.tournaments = action.payload;
     });
+    builder.addCase(loadMarkets.fulfilled, (state, action) => {
+      state.markets = action.payload;
+    })
   },
 });
 

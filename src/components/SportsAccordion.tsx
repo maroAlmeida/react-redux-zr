@@ -1,18 +1,25 @@
+"use client";
 
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/store/store';
+import React, { useEffect } from 'react';
+import { useDispatch ,useSelector } from 'react-redux';
+import { loadTournaments } from '@/store/matchSlice';
+import { RootState, AppDispatch } from '@/store/store';
 import AccordionItem from './AccordionItem';
 
 const SportsAccordion: React.FC = () => {
-    const sports = useSelector( (state: RootState) => state.match.sports );
+    const dispatch = useDispatch<AppDispatch>();
+    const tournaments = useSelector( (state: RootState) => state.match.tournaments );
+
+    useEffect(() => {
+        dispatch(loadTournaments());
+    }, [dispatch] );
 
     return(
         <div>
-            {sports.map( (sport) => (
-                <div key={sport.id} className='mb-4' >
-                    <h2 className='text-xl font-semi-bold'  >{sport.name}</h2>
-                    {sport.matches.map((match) => (
+            {tournaments.map( (tournament) => (
+                <div key={tournament.id} className='mb-4' >
+                    <h2 className='text-xl font-semi-bold'  >{tournament.name}</h2>
+                    {tournament.matches.map((match) => (
                         <AccordionItem key={match.id} match={match} />
                     ))}
                 </div>

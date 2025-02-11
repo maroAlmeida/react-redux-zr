@@ -2,18 +2,16 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch as useReduxDispatch } from 'react-redux';
-import { loadSports } from '../store/matchSlice';
+import { loadTournaments } from '@/store/matchSlice';
 import { AppDispatch } from '../store/store';
 import SportsAccordion from '@/components/SportsAccordion';
 import SelectedMatch from '../components/SelectedMatch';
-
-
 
 const Page: React.FC = () => {
   const dispatch = useReduxDispatch<AppDispatch>(); // Dispatch tipado corretamente
 
   useEffect(() => {
-    dispatch(loadSports()); // Carrega os esportes na montagem
+    dispatch(loadTournaments()); // Carrega os esportes na montagem
   }, [dispatch]);
 
   return (
