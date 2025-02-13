@@ -51,3 +51,49 @@ Os projeto utiliza Redux para controlar o estado global e segue os princípios S
 Single Responsibility: Cada componente tem uma única função.
 Open/Closed Principle: Componentes podem ser estendidos sem modificação direta.
 Dependency Inversion: Componentes dependem de Redux (abstração), não diretamente de estado interno.
+
+Atualmente, nosso projeto está estruturado assim:
+
+✅ 1) Requisição HTTP GET para buscar torneios
+fetchTournaments() em services/api.ts faz a chamada à API.
+loadTournaments() em store/matchSlice.ts usa Redux Thunk para armazenar os torneios no estado global.
+SportsAccordion.tsx exibe os torneios e suas partidas.
+
+✅ 2) Requisição HTTP GET para buscar os jogos de um torneio
+fetchMarkets(matchId) em services/api.ts busca mercados (dados do jogo) para um matchId.
+loadMarkets(matchId) em store/matchSlice.ts armazena os mercados no Redux.
+SelectedMatch.tsx exibe detalhes do jogo selecionado.
+
+🚧 3) Implementação pendente: Requisição POST para enviar aposta (placeBet)
+Precisamos criar interfaces e lógica para o usuário inserir os dados da aposta.
+Criar um componente de formulário (PlaceBet.tsx).
+Usar a função placeBet() para enviar os dados para a API.
+
+📌 Desenvolvimento da Funcionalidade de Apostas
+Agora, vamos mapear cada etapa do desenvolvimento da funcionalidade de apostas (POST /api/bet).
+
+🔹 Fluxo Completo
+1️⃣ Usuário seleciona um jogo (match) → SelectedMatch.tsx exibe os detalhes do jogo.
+2️⃣ Usuário preenche valor da aposta e seleciona um resultado (outcome) → Criamos um formulário de apostas (PlaceBet.tsx).
+3️⃣ Usuário clica em "Fazer Aposta" → O formulário chama placeBet().
+4️⃣ O Redux armazena o status da aposta → Criamos placeBetThunk em matchSlice.ts para gerenciar o envio da aposta.
+5️⃣ Se sucesso, exibimos mensagem → Se erro, mostramos um alerta.
+
+
+📂 Arquitetura e Responsabilidades dos Arquivos
+Aqui está um mapa dos arquivos envolvidos, com suas funções:
+
+📁 services/api.ts
+📌 Responsabilidade: Fazer chamadas HTTP para a API.
+✅ Adicionamos a função placeBet() para enviar a aposta.
+
+store/matchSlice.ts
+📌 Responsabilidade: Gerenciar estado global dos torneios, jogos e apostas.
+✅ Criamos placeBetThunk para gerenciar o envio da aposta.
+
+✅ Resumo do Desenvolvimento
+Agora temos todas as etapas da funcionalidade de apostas bem definidas!
+🔹 services/api.ts → Função placeBet() para chamar a API.
+🔹 store/matchSlice.ts → placeBetThunk para gerenciar o envio da aposta.
+🔹 components/PlaceBet.tsx → Interface para o usuário inserir e enviar a aposta.
+🔹 app/page.tsx → Adicionamos <PlaceBet /> para exibir o formulário na tela.

@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "60408db6-3682-424c-991f-e1e43c483127",
+		"name": "VL - FE Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "124633"
+	},
+	"item": [
+		{
+			"name": "1 - Challenge API - Tournaments Menu",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fe-challenge-seven.vercel.app/api/tournaments",
+					"protocol": "https",
+					"host": [
+						"fe-challenge-seven",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"tournaments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Challenge API - Match Markets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fe-challenge-seven.vercel.app/api/markets/3",
+					"protocol": "https",
+					"host": [
+						"fe-challenge-seven",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"markets",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Challenge API - Place Bet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"bet\": 300,\n  \"marketId\": 1,\n  \"matchId\": 1,\n  \"outcome\": {\n    \"name\": \"Real Madrid\",\n    \"id\": 8507,\n    \"odds\": 33.691488831\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fe-challenge-seven.vercel.app/api/bet",
+					"protocol": "https",
+					"host": [
+						"fe-challenge-seven",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"bet"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchTournaments, fetchMarkets } from '@/services/api';
+import { fetchTournaments, fetchMarkets, placeBet } from '@/services/api';
 import { Tournament, Market, Match } from '@/services/types';
 
 interface MatchState {
   tournaments: Tournament[];
   markets: Market[];
   selectedMatch: Match | null;
+  betStatus: 'idle' | 'sucess' | 'error';
 }
 
-const initialState: MatchState = { tournaments: [], markets: [], selectedMatch: null };
+const initialState: MatchState = { tournaments: [], markets: [], selectedMatch: null, betStatus: 'idle' };
 
 
 // Thunks para buscar dados da API
@@ -19,6 +20,10 @@ export const loadTournaments = createAsyncThunk('match/loadTournaments', async (
 export const loadMarkets = createAsyncThunk('match/loadMarkets', async (matchId: number) => {
   return await fetchMarkets(matchId);
 })
+
+export const placeBetThunk = createAsyncThunk('match/placeBet', async (betData: { bet: number; marketId: number; matchId: number; outcome: { name: string; id: number; odds: number } }) => {
+  return await placeBet(betData);
+} )
 
 const matchSlice = createSlice({
   name: 'match',
@@ -34,6 +39,12 @@ const matchSlice = createSlice({
     });
     builder.addCase(loadMarkets.fulfilled, (state, action) => {
       state.markets = action.payload;
+    });
+    builder.addCase(placeBetThunk.fulfilled, (state) => {
+      state.betStatus = 'sucess';
+    });
+    builder.addCase(placeBetThunk.rejected, (state) => {
+      state.betStatus = 'error';
     })
   },
 });

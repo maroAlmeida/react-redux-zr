@@ -13,7 +13,7 @@ const SportsAccordion: React.FC = () => {
     useEffect(() => {
         dispatch(loadTournaments());
     }, [dispatch] );
-    console.log("Torneios carregados:", tournaments);
+    console.log("SportsAccordion Torneios carregados:", tournaments);
 
     return(
         <div>

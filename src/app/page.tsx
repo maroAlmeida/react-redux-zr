@@ -6,6 +6,7 @@ import { loadTournaments } from '@/store/matchSlice';
 import { AppDispatch } from '../store/store';
 import SportsAccordion from '@/components/SportsAccordion';
 import SelectedMatch from '../components/SelectedMatch';
+import PlaceBet from '@/components/PlaceBet';
 
 const Page: React.FC = () => {
   const dispatch = useReduxDispatch<AppDispatch>(); // Dispatch tipado corretamente
@@ -24,7 +25,9 @@ const Page: React.FC = () => {
         <div className='border-2 border-indigo-600'>
           <SelectedMatch />
         </div>
-        <div className='border-2 border-indigo-600' ></div>
+        <div className='border-2 border-indigo-600' >
+        <PlaceBet />
+        </div>
       </div>
     </div>
   );
